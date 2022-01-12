@@ -28,7 +28,7 @@ namespace DatabaseLayer
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=(localdb)\\ProjectModels;Initial Catalog=MyCoachingPractice;Integrated Security=True;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=tcp:ishanmalikdbserver.database.windows.net,1433;Initial Catalog=MyCoachingPracticeAzureDB;Persist Security Info=False;User ID=ishan;Password=Azurepractice@1989;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
 
@@ -91,7 +91,7 @@ namespace DatabaseLayer
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.HasIndex(e => e.Email, "UQ__Users__A9D10534CAB1DACA")
+                entity.HasIndex(e => e.Email, "UQ__Users__A9D10534B2AE7500")
                     .IsUnique();
 
                 entity.Property(e => e.Email).HasMaxLength(150);
