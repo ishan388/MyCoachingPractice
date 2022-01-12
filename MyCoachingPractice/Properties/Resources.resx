@@ -120,7 +120,4 @@
   <data name="AzureConnectionString" xml:space="preserve">
     <value>Server=tcp:ishanmalikdbserver.database.windows.net,1433;Initial Catalog=MyCoachingPracticeAzureDB;Persist Security Info=False;User ID=ishan;Password=Azurepractice@1989;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;</value>
   </data>
-  <data name="ConnectionString" xml:space="preserve">
-    <value>Server=(localdb)\\ProjectModels;Initial Catalog=MyCoachingPractice;Integrated Security=True;Trusted_Connection=True;</value>
-  </data>
 </root>

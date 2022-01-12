@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DatabaseLayer.Properties {
+namespace MyCoachingPractice.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DatabaseLayer.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DatabaseLayer.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MyCoachingPractice.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -66,15 +66,6 @@ namespace DatabaseLayer.Properties {
         internal static string AzureConnectionString {
             get {
                 return ResourceManager.GetString("AzureConnectionString", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Server=(localdb)\\ProjectModels;Initial Catalog=MyCoachingPractice;Integrated Security=True;Trusted_Connection=True;.
-        /// </summary>
-        internal static string ConnectionString {
-            get {
-                return ResourceManager.GetString("ConnectionString", resourceCulture);
             }
         }
     }
