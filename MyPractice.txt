@@ -1,0 +1,62 @@
+--------------------------
+Main Entities 
+--------------------------
+
+teacher
+class
+students
+
+--------------------------
+Features
+--------------------------
+
+- Role based Login/Logout, Register, and Forget Password
+- Student: Enrolled classes and Teacher informations
+- Teacher: Assign/Deassign classes to Students
+- Principal: Assign/Deassign classes to Teachers
+- Admin: Reset Passwords for everyone
+
+--------------------------
+Db Design
+--------------------------
+
+Statuses:
+
+StatusId
+Name - Active, Deactive, Removed, Suspended
+
+Roles:
+
+RoleId
+Name - Admin, Principal, Teacher, Student
+StatusId 
+
+Users:
+
+UserId
+UserName
+Password
+FullName
+RoleId
+StatusId
+
+Classes:
+
+ClassId
+Name - Maths, Science, Chemistry, Biology
+StatusId
+
+TeacherClasses:
+
+TCId
+ClassId
+TeacherId = UserId
+
+StudentClasses:
+
+SCId
+ClassId
+StudentId = UserId
+
+
+Scaffold-DbContext "Server=(localdb)\ProjectModels;Initial Catalog=MyCoachingPractice;Integrated Security=True;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -Context AppDbContext
