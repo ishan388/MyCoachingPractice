@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginandregisterService } from './loginandregister.service';
 
 @Component({
   selector: 'app-loginandregister',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginandregisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service: LoginandregisterService) { }
 
   ngOnInit(): void {
+  }
+
+  registerOnClick() {
+    this.service.registerStudent().subscribe(
+      (res: any) => {
+        console.log(res);
+        alert(res.message);
+        this.service.clearForm();
+      },
+      err => {
+        console.log(err);
+      }
+    )
   }
 
 }
