@@ -38,16 +38,19 @@
             <h3>Register Student</h3>
             <form>
                 <div class="form-outline mb-4">
-                    <input type="text" class="form-control" placeholder="Your Fullname *" value="" />
+                    <input type="text" class="form-control" placeholder="Your Fullname *" 
+                    name="fullName" #fullName="ngModel" [(ngModel)]="service.formData.fullName" required />
                 </div>
                 <div class="form-outline mb-4">
-                    <input type="email" class="form-control" placeholder="Your Email *" value="" />
+                    <input type="email" class="form-control" placeholder="Your Email *" 
+                    name="email" #email="ngModel" [(ngModel)]="service.formData.email" required />
                 </div>
                 <div class="form-outline mb-4">
-                    <input type="password" class="form-control" placeholder="Your Password *" value="" />
+                    <input type="password" class="form-control" placeholder="Your Password *" 
+                    name="password" #password="ngModel" [(ngModel)]="service.formData.password" required minlength="6" />
                 </div>
                 <div class="form-outline mb-4">
-                    <input type="submit" class="btnSubmit" value="Register" />
+                    <button (click)="registerOnClick()" class="btnSubmit">Register</button>
                 </div>
             </form>
         </div>
