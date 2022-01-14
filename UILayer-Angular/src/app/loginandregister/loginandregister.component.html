@@ -3,56 +3,67 @@
 
         <div class="col-md-6 login-form-1">
             <h3>Login</h3>
-            <form>
+            <form #loginForm>
                 <div class="form-outline mb-4">
-                    <input type="email" class="form-control" placeholder="Your Email *" value="" />
+                    <input type="email" class="form-control" placeholder="Your Email *" name="loginEmail"
+                        #loginEmail="ngModel" [(ngModel)]="service.loginFormData.email" required />
                 </div>
                 <div class="form-outline mb-4">
-                    <input type="password" class="form-control" placeholder="Your Password *" value="" />
+                    <input type="password" class="form-control" placeholder="Your Password *" name="loginPassword"
+                        #loginPassword="ngModel" [(ngModel)]="service.loginFormData.password" required />
                 </div>
                 <div class="form-outline mb-4">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                            value="2" checked>
-                        <label class="form-check-label" for="inlineRadio1">Student</label>
+                        <input class="form-check-input" type="radio" value="2" required name="loginRoleId"
+                            #loginRoleId="ngModel" [(ngModel)]="service.loginFormData.roleId" checked>
+                        <label class="form-check-label" for="loginRoleId">Student</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                            value="3">
-                        <label class="form-check-label" for="inlineRadio2">Teacher</label>
+                        <input class="form-check-input" type="radio" value="3" required name="loginRoleId"
+                            #loginRoleId="ngModel" [(ngModel)]="service.loginFormData.roleId">
+                        <label class="form-check-label" for="loginRoleId">Teacher</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
-                            value="4">
-                        <label class="form-check-label" for="inlineRadio3">Principal</label>
+                        <input class="form-check-input" type="radio" value="4" required name="loginRoleId"
+                            #loginRoleId="ngModel" [(ngModel)]="service.loginFormData.roleId">
+                        <label class="form-check-label" for="loginRoleId">Principal</label>
                     </div>
                 </div>
                 <div class="form-outline mb-4">
-                    <input type="submit" class="btnSubmit" value="Login" />
+                    <input type="button" class="btnSubmit" value="Login" (click)="loginOnClick()" />
                     &nbsp; <a href="#" class="ForgetPwd">Forget Password?</a>
                 </div>
             </form>
+            <div *ngIf="service.loginResponse!=null && service.loginResponse!=undefined && service.loginResponse.message.length > 0" 
+                [ngClass]="service.loginResponse.isSuccess ? 'alert alert-success' : 'alert alert-danger'" role="alert">
+                    {{service.loginResponse.message}}
+                </div>
         </div>
 
         <div class="col-md-6 login-form-2">
             <h3>Register Student</h3>
             <form>
                 <div class="form-outline mb-4">
-                    <input type="text" class="form-control" placeholder="Your Fullname *" 
-                    name="fullName" #fullName="ngModel" [(ngModel)]="service.formData.fullName" required />
+                    <input type="text" class="form-control" placeholder="Your Fullname *" name="fullName"
+                        #fullName="ngModel" [(ngModel)]="service.registerFormData.fullName" required />
                 </div>
                 <div class="form-outline mb-4">
-                    <input type="email" class="form-control" placeholder="Your Email *" 
-                    name="email" #email="ngModel" [(ngModel)]="service.formData.email" required />
+                    <input type="email" class="form-control" placeholder="Your Email *" name="email" #email="ngModel"
+                        [(ngModel)]="service.registerFormData.email" required />
                 </div>
                 <div class="form-outline mb-4">
-                    <input type="password" class="form-control" placeholder="Your Password *" 
-                    name="password" #password="ngModel" [(ngModel)]="service.formData.password" required minlength="6" />
+                    <input type="password" class="form-control" placeholder="Your Password *" name="password"
+                        #password="ngModel" [(ngModel)]="service.registerFormData.password" required minlength="6" />
                 </div>
                 <div class="form-outline mb-4">
                     <button (click)="registerOnClick()" class="btnSubmit">Register</button>
                 </div>
             </form>
+            <div *ngIf="service.registerResponse!=null && service.registerResponse!=undefined && service.registerResponse.message.length > 0" 
+            [ngClass]="service.registerResponse.isSuccess ? 'alert alert-success' : 'alert alert-danger'" role="alert">
+                {{service.registerResponse.message}}
+            </div>
         </div>
+
     </div>
 </div>
